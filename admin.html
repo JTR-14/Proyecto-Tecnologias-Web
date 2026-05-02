@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - GameStore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { primary: '#A855F7', background: '#0F172A', card: '#1E293B', bordercolor: '#334155', textsec: '#94A3B8' }
+                }
+            }
+        }
+    </script>
+    <style>body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: white; }</style>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="bg-card border-b border-bordercolor py-4 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-white font-bold text-xl">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                GameStore Admin
+            </a>
+            <div class="flex items-center gap-4">
+                <span class="text-sm font-medium hidden md:block">Administrador</span>
+                <img src="https://ui-avatars.com/api/?name=Admin&background=A855F7&color=fff" alt="Admin" class="w-8 h-8 rounded-full">
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-card border-b border-bordercolor overflow-x-auto">
+        <ul class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-8 text-sm font-medium whitespace-nowrap py-3">
+            <li><a href="index.html" class="flex flex-col items-center gap-1 text-textsec hover:text-primary transition-colors"><span class="text-xl">🏠</span> Volver a la Tienda</a></li>
+            <li><a href="admin.html" class="flex flex-col items-center gap-1 text-primary transition-colors"><span class="text-xl">📊</span> Dashboard</a></li>
+        </ul>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        <!-- Dashboard Stats -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-card rounded-xl border border-bordercolor p-6 flex flex-col shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-textsec font-medium">Total Productos</h3>
+                    <div class="p-2 bg-blue-500/10 rounded-lg text-blue-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    </div>
+                </div>
+                <p class="text-3xl font-bold text-white">12</p>
+                <p class="text-sm text-green-400 mt-2 flex items-center gap-1">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+                    +2 este mes
+                </p>
+            </div>
+            
+            <div class="bg-card rounded-xl border border-bordercolor p-6 flex flex-col shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-textsec font-medium">Valor Inventario</h3>
+                    <div class="p-2 bg-green-500/10 rounded-lg text-green-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                </div>
+                <p class="text-3xl font-bold text-white">$198,341.38</p>
+                <p class="text-sm text-textsec mt-2 flex items-center gap-1">Actualizado hace 1 hora</p>
+            </div>
+
+            <div class="bg-card rounded-xl border border-bordercolor p-6 flex flex-col shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-textsec font-medium">Categorías</h3>
+                    <div class="p-2 bg-purple-500/10 rounded-lg text-purple-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    </div>
+                </div>
+                <p class="text-3xl font-bold text-white">4</p>
+                <p class="text-sm text-textsec mt-2 flex items-center gap-1">Activas</p>
+            </div>
+            
+            <div class="bg-card rounded-xl border border-bordercolor p-6 flex flex-col shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-textsec font-medium">Alertas de Stock</h3>
+                    <div class="p-2 bg-red-500/10 rounded-lg text-red-400">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                </div>
+                <p class="text-3xl font-bold text-red-500">1</p>
+                <p class="text-sm text-textsec mt-2 flex items-center gap-1">Producto requiere atención</p>
+            </div>
+        </div>
+
+        <!-- Gestión de Productos -->
+        <div class="bg-card rounded-xl border border-bordercolor shadow-lg overflow-hidden">
+            <div class="p-6 border-b border-bordercolor flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <h2 class="text-xl font-bold text-white">Gestión de Productos</h2>
+                <button class="bg-primary hover:bg-purple-600 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-lg shadow-purple-500/30 flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    Añadir nuevo producto
+                </button>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-background border-b border-bordercolor text-textsec text-sm">
+                            <th class="px-6 py-4 font-medium">Producto</th>
+                            <th class="px-6 py-4 font-medium">Categoría</th>
+                            <th class="px-6 py-4 font-medium">Precio</th>
+                            <th class="px-6 py-4 font-medium">Stock</th>
+                            <th class="px-6 py-4 font-medium">Estado</th>
+                            <th class="px-6 py-4 font-medium">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-bordercolor">
+                        <tr class="hover:bg-background/50 transition-colors">
+                            <td class="px-6 py-4 flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1606813907291-d86efa9b94db?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-lg object-cover" alt="PS5">
+                                <span class="text-white font-medium">PlayStation 5 Consola</span>
+                            </td>
+                            <td class="px-6 py-4 text-textsec">Videojuegos</td>
+                            <td class="px-6 py-4 text-white font-medium">$499.00</td>
+                            <td class="px-6 py-4 text-white">120</td>
+                            <td class="px-6 py-4">
+                                <span class="bg-green-500/20 text-green-400 text-xs font-medium px-2.5 py-1 rounded-full border border-green-500/20">En Stock</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <button class="text-textsec hover:text-primary transition-colors">Editar</button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-background/50 transition-colors">
+                            <td class="px-6 py-4 flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1587202372634-32705e3bf49c?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-lg object-cover" alt="PC">
+                                <span class="text-white font-medium">PC Gamer Ultra RTX 4080</span>
+                            </td>
+                            <td class="px-6 py-4 text-textsec">PCs Gamer</td>
+                            <td class="px-6 py-4 text-white font-medium">$2,499.00</td>
+                            <td class="px-6 py-4 text-red-400 font-bold">8</td>
+                            <td class="px-6 py-4">
+                                <span class="bg-red-500/20 text-red-400 text-xs font-medium px-2.5 py-1 rounded-full border border-red-500/20">Stock Bajo</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <button class="text-textsec hover:text-primary transition-colors">Editar</button>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-background/50 transition-colors">
+                            <td class="px-6 py-4 flex items-center gap-3">
+                                <img src="https://images.unsplash.com/photo-1593640408182-31c70c8268f5?auto=format&fit=crop&q=80&w=100" class="w-10 h-10 rounded-lg object-cover" alt="CPU">
+                                <span class="text-white font-medium">AMD Ryzen 9 7950X</span>
+                            </td>
+                            <td class="px-6 py-4 text-textsec">Componentes</td>
+                            <td class="px-6 py-4 text-white font-medium">$599.00</td>
+                            <td class="px-6 py-4 text-white">45</td>
+                            <td class="px-6 py-4">
+                                <span class="bg-green-500/20 text-green-400 text-xs font-medium px-2.5 py-1 rounded-full border border-green-500/20">En Stock</span>
+                            </td>
+                            <td class="px-6 py-4">
+                                <button class="text-textsec hover:text-primary transition-colors">Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="p-4 border-t border-bordercolor flex justify-between items-center text-sm text-textsec">
+                <span>Mostrando 3 de 12 productos</span>
+                <div class="flex gap-2">
+                    <button class="px-3 py-1 rounded border border-bordercolor hover:bg-background transition-colors disabled:opacity-50" disabled>Anterior</button>
+                    <button class="px-3 py-1 rounded border border-bordercolor hover:bg-background transition-colors text-white bg-primary border-primary">1</button>
+                    <button class="px-3 py-1 rounded border border-bordercolor hover:bg-background transition-colors">2</button>
+                    <button class="px-3 py-1 rounded border border-bordercolor hover:bg-background transition-colors">Siguiente</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
