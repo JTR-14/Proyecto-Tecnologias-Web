@@ -18,8 +18,9 @@
         }
     </script>
     <style>body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: white; }</style>
+    <script src="../assets/js/main.js" defer></script>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col relative">
     <header class="bg-card border-b border-bordercolor py-4 sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             <a href="index.html" class="flex items-center gap-2 text-white font-bold text-xl">
@@ -27,14 +28,15 @@
                 GameStore Admin
             </a>
             <div class="flex items-center gap-4">
+                <button id="mobileMenuBtn" class="md:hidden text-textsec hover:text-white" aria-label="Menú"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
                 <span class="text-sm font-medium hidden md:block">Administrador</span>
                 <img src="https://ui-avatars.com/api/?name=Admin&background=A855F7&color=fff" alt="Admin" class="w-8 h-8 rounded-full">
             </div>
         </div>
     </header>
 
-    <nav class="bg-card border-b border-bordercolor overflow-x-auto">
-        <ul class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-8 text-sm font-medium whitespace-nowrap py-3">
+    <nav id="mobileNav" class="bg-card border-b border-bordercolor hidden md:block w-full">
+        <ul class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 text-sm font-medium whitespace-nowrap py-4 md:py-3">
             <li><a href="../index.html" class="flex flex-col items-center gap-1 text-textsec hover:text-primary transition-colors"><span class="text-xl">🏠</span> Volver a la Tienda</a></li>
             <li><a href="admin.html" class="flex flex-col items-center gap-1 text-primary transition-colors"><span class="text-xl">📊</span> Dashboard</a></li>
         </ul>
@@ -64,7 +66,7 @@
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     </div>
                 </div>
-                <p class="text-3xl font-bold text-white">$198,341.38</p>
+                <p class="text-3xl font-bold text-white">S/ 198,341.38</p>
                 <p class="text-sm text-textsec mt-2 flex items-center gap-1">Actualizado hace 1 hora</p>
             </div>
 
@@ -119,7 +121,7 @@
                                 <span class="text-white font-medium">PlayStation 5 Consola</span>
                             </td>
                             <td class="px-6 py-4 text-textsec">Videojuegos</td>
-                            <td class="px-6 py-4 text-white font-medium">$499.00</td>
+                            <td class="px-6 py-4 text-white font-medium">S/ 499.00</td>
                             <td class="px-6 py-4 text-white">120</td>
                             <td class="px-6 py-4">
                                 <span class="bg-green-500/20 text-green-400 text-xs font-medium px-2.5 py-1 rounded-full border border-green-500/20">En Stock</span>
@@ -134,7 +136,7 @@
                                 <span class="text-white font-medium">PC Gamer Ultra RTX 4080</span>
                             </td>
                             <td class="px-6 py-4 text-textsec">PCs Gamer</td>
-                            <td class="px-6 py-4 text-white font-medium">$2,499.00</td>
+                            <td class="px-6 py-4 text-white font-medium">S/ 2,499.00</td>
                             <td class="px-6 py-4 text-red-400 font-bold">8</td>
                             <td class="px-6 py-4">
                                 <span class="bg-red-500/20 text-red-400 text-xs font-medium px-2.5 py-1 rounded-full border border-red-500/20">Stock Bajo</span>
@@ -149,7 +151,7 @@
                                 <span class="text-white font-medium">AMD Ryzen 9 7950X</span>
                             </td>
                             <td class="px-6 py-4 text-textsec">Componentes</td>
-                            <td class="px-6 py-4 text-white font-medium">$599.00</td>
+                            <td class="px-6 py-4 text-white font-medium">S/ 599.00</td>
                             <td class="px-6 py-4 text-white">45</td>
                             <td class="px-6 py-4">
                                 <span class="bg-green-500/20 text-green-400 text-xs font-medium px-2.5 py-1 rounded-full border border-green-500/20">En Stock</span>
