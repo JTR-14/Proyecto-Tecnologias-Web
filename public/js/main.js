@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cada objeto en 'carrito' tiene: { title, price, img, quantity }
     // Cada objeto en 'listaDeseos' tiene: { title, price, img }
     // Cargar estado inicial desde localStorage si existe
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];  
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
     let listaDeseos = JSON.parse(localStorage.getItem('listaDeseos')) || [];
 
     // 'guardarEstado' actualiza toda la interfaz después de cambios en 'carrito' o 'listaDeseos'.
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartSidebar = document.getElementById('cartSidebar');
     const wishlistSidebar = document.getElementById('wishlistSidebar');
     const sidebarOverlay = document.getElementById('sidebarOverlay');
-    
+
     const cartOpenBtn = document.getElementById('cartOpenBtn');
     const wishlistOpenBtn = document.getElementById('wishlistOpenBtn');
     const closeCartBtn = document.getElementById('closeCartBtn');
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="${item.img}" alt="${item.title}" class="w-16 h-16 object-cover rounded-md bg-gray-900">
                 <div class="flex-1">
                     <h4 class="text-white text-sm font-semibold line-clamp-1">${item.title}</h4>
-                    <p class="text-primary text-sm font-bold">S/ ${item.price.toLocaleString('en-US', {minimumFractionDigits: 2})}</p>
+                    <p class="text-primary text-sm font-bold">S/ ${item.price.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
                     <div class="flex items-center gap-2 mt-2">
                         <button class="bg-gray-800 text-white/70 hover:text-white px-2 py-1 rounded decrease-qty" data-index="${index}">-</button>
                         <span class="text-white text-sm w-4 text-center">${item.quantity}</span>
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Muestra el total formateado (ej. "S/ 1,498.00")
-        totalEl.textContent = `S/ ${total.toLocaleString('en-US', {minimumFractionDigits: 2})}`;
+        totalEl.textContent = `S/ ${total.toLocaleString('en-US', { minimumFractionDigits: 2 })}`;
 
         // Agrega eventos a los botones generados dinámicamente
         // Botón "+" : aumenta cantidad en 1, luego refresca UI
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <img src="${item.img}" alt="${item.title}" class="w-16 h-16 object-cover rounded-md bg-gray-900">
                 <div class="flex-1">
                     <h4 class="text-white text-sm font-semibold line-clamp-1">${item.title}</h4>
-                    <p class="text-primary text-sm font-bold">S/ ${item.price.toLocaleString('en-US', {minimumFractionDigits: 2})}</p>
+                    <p class="text-primary text-sm font-bold">S/ ${item.price.toLocaleString('en-US', { minimumFractionDigits: 2 })}</p>
                 </div>
                 <button class="bg-primary hover:bg-purple-600 text-white p-2 rounded-lg transition-colors move-to-cart" data-index="${index}">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
@@ -282,7 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (wishlistOpenBtn) wishlistOpenBtn.addEventListener('click', () => abrirSidebar(wishlistSidebar));
     if (closeCartBtn) closeCartBtn.addEventListener('click', () => cerrarSidebar(cartSidebar));
     if (closeWishlistBtn) closeWishlistBtn.addEventListener('click', () => cerrarSidebar(wishlistSidebar));
-    
+
     if (sidebarOverlay) {
         sidebarOverlay.addEventListener('click', () => {
             closeSidebar(cartSidebar);
@@ -461,7 +461,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 'filtrarProductos' filtra tarjetas por data-category y resalta tab activa
     const filtrarProductos = (categoria, pestañaActiva) => {
-        pestañas.forEach(t => { if(t) { t.classList.remove('text-primary', 'border-b-2', 'border-primary'); t.classList.add('text-textsec'); }});  // Quita resalto de todos
+        pestañas.forEach(t => { if (t) { t.classList.remove('text-primary', 'border-b-2', 'border-primary'); t.classList.add('text-textsec'); } });  // Quita resalto de todos
         if (pestañaActiva) { pestañaActiva.classList.remove('text-textsec'); pestañaActiva.classList.add('text-primary', 'border-b-2', 'border-primary'); }  // Resalta activo
         tarjetasProducto.forEach(card => {
             if (categoria === 'todos' || card.dataset.category === categoria) {  // 'todos' muestra todo; otros filtran por atributo
