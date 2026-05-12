@@ -1,0 +1,192 @@
+@extends('layouts.app')
+
+@section('content')
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+            <div>
+                <h1 class="text-3xl font-bold text-black dark:text-white mb-1">Acerca de</h1>
+                <p class="text-textsec dark:text-white text-sm">Descubre más sobre nosotros y nuestra misión</p>
+            </div>
+        </div>
+
+        <div>
+            <p class="text-textsec dark:text-white">
+                Nosotros somos una empresa dedicada a proporcionar los mejores productos y servicios para los entusiastas del gaming. Nuestra misión es ofrecer una experiencia excepcional a nuestros clientes, brindando productos de alta calidad y un servicio al cliente excepcional.
+            </p>
+        </div>
+
+<!-- Nuestra Historia -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mt-12">
+
+    <!-- Texto -->
+    <div>
+        <h2 class="text-3xl font-bold text-black dark:text-white mb-5">
+            Nuestra Historia
+        </h2>
+
+        <p class="text-textsec dark:text-white">
+            Desde nuestros inicios, hemos trabajado con pasión y compromiso
+            para ofrecer los mejores productos y experiencias a la comunidad gamer.
+        </p>
+
+        <p class="text-textsec dark:text-white">
+            Gracias a la confianza de nuestros clientes, hemos crecido
+            constantemente, convirtiéndonos en una tienda enfocada en calidad,
+            innovación y atención personalizada.
+        </p>
+    </div>
+
+    <!-- Imagen -->
+    <div>
+        <img src="{{ asset('images/historia.png') }}" alt="Nuestra Historia" class="w-full object-cover rounded-2xl shadow-xl">
+    </div>
+
+</div>
+
+
+<!-- Nuestro Equipo -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mt-20">
+
+    <!-- Imagen -->
+    <div class="order-2 lg:order-1">
+        <img src="{{ asset('images/equipo.png') }}" alt="Nuestro Equipo" class="w-full object-cover rounded-2xl shadow-xl">
+    </div>
+
+    <!-- Texto -->
+    <div class="order-1 lg:order-2">
+        <h2 class="text-3xl font-bold text-black dark:text-white mb-5">
+            Nuestro Equipo
+        </h2>
+
+        <p class="text-textsec dark:text-white">
+            Contamos con un equipo apasionado por el gaming y la tecnología,
+            enfocado en brindar la mejor experiencia a cada cliente.
+        </p>
+
+        <p class="text-textsec dark:text-white">
+            Desde asesores especializados hasta expertos en hardware,
+            trabajamos juntos para ayudarte a encontrar el setup perfecto.
+        </p>
+    </div>
+
+</div>
+
+<!-- Misión y Visión -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+
+    <!-- Misión -->
+    <div class="bg-white dark:bg-zinc-900 border border-bordercolor rounded-2xl p-6 shadow-lg hover:scale-[1.02] transition duration-300">
+        
+        <div class="flex items-center gap-4 mb-4">
+            <div class="bg-primary/10 p-3 rounded-xl">
+                
+                <!-- Icono misión -->
+                <svg class="w-7 h-7 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+
+            </div>
+
+            <h2 class="text-2xl font-bold text-black dark:text-white">
+                Nuestra Misión
+            </h2>
+        </div>
+
+        <p class="text-textsec leading-7">
+            Brindar a los entusiastas del gaming los mejores productos y servicios,
+            garantizando calidad, innovación y una experiencia excepcional en cada compra.
+        </p>
+
+    </div>
+
+    <!-- Visión -->
+    <div class="bg-white dark:bg-zinc-900 border border-bordercolor rounded-2xl p-6 shadow-lg hover:scale-[1.02] transition duration-300">
+        
+        <div class="flex items-center gap-4 mb-4">
+            <div class="bg-primary/10 p-3 rounded-xl">
+
+                <!-- Icono visión -->
+                <svg class="w-7 h-7 text-black dark:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5 c4.478 0 8.268 2.943 9.542 7 -1.274 4.057-5.064 7-9.542 7 -4.477 0-8.268-2.943-9.542-7z"/>
+                </svg>
+
+            </div>
+
+            <h2 class="text-2xl font-bold text-black dark:text-white">
+                Nuestra Visión
+            </h2>
+        </div>
+
+        <p class="text-textsec leading-7">
+            Convertirnos en una de las tiendas gaming más reconocidas del país,
+            creando una comunidad apasionada por la tecnología y los videojuegos.
+        </p>
+
+    </div>
+
+</div>
+
+<!-- Redes Sociales -->
+<div class="text-center mt-12">
+
+    <h2 class="text-3xl font-bold text-black dark:text-white mb-3">
+        Síguenos en Nuestras Redes
+    </h2>
+
+    <p class="text-textsec max-w-2xl mx-auto mb-8">
+        Mantente al día con nuestras novedades, ofertas y lanzamientos
+        siguiéndonos en nuestras redes sociales.
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-4">
+
+        <!-- Facebook -->
+        <a href="#"
+            class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl transition duration-300 shadow-md">
+
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22 12a10 10 0 10-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.88 3.77-3.88 1.1 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0022 12z"/>
+            </svg>
+
+            Facebook
+        </a>
+
+        <!-- Instagram -->
+        <a href="#" class="flex items-center gap-2 bg-pink-600 hover:bg-pink-700 text-white px-5 py-3 rounded-xl transition duration-300 shadow-md">
+
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7.75 2C4.57 2 2 4.57 2 7.75v8.5C2 19.43 4.57 22 7.75 22h8.5C19.43 22 22 19.43 22 16.25v-8.5C22 4.57 19.43 2 16.25 2h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm6.5-.88a1.12 1.12 0 11-2.24 0 1.12 1.12 0 012.24 0z"/>
+            </svg>
+
+            Instagram
+        </a>
+
+        <!-- TikTok -->
+        <a href="#" class="flex items-center gap-2 bg-black hover:bg-zinc-800 text-white px-5 py-3 rounded-xl transition duration-300 shadow-md border border-white/10">
+
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.77h-3.4v13.55a2.9 2.9 0 11-2.9-2.9c.23 0 .45.03.66.08V9.21a6.34 6.34 0 00-.66-.03A6.32 6.32 0 1015.82 15V8.63a8.23 8.23 0 004.77 1.53V6.69z"/>
+            </svg>
+
+            TikTok
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/51993521821" target="_blank" class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-5 py-3 rounded-xl transition duration-300 shadow-md">
+
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.52 3.48A11.82 11.82 0 0012 0C5.37 0 0 5.37 0 12c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65A11.95 11.95 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52z"/>
+            </svg>
+
+            WhatsApp
+        </a>
+
+    </div>
+
+</div>
+
+    </main>
+
+@endsection
