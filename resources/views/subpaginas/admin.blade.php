@@ -1,6 +1,46 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - GameStore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { primary: '#A855F7', background: '#0F172A', card: '#1E293B', bordercolor: '#334155', textsec: '#94A3B8' }
+                }
+            }
+        }
+    </script>
+    <style>body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: white; }</style>
+    <script src="../assets/js/main.js" defer></script>
+</head>
+<body class="min-h-screen flex flex-col relative">
+    <header class="bg-card border-b border-bordercolor py-4 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 text-white font-bold text-xl">
+                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path></svg>
+                GameStore Admin
+            </a>
+            <div class="flex items-center gap-4">
+                <button id="mobileMenuBtn" class="md:hidden text-textsec hover:text-white" aria-label="Menú"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+                <span class="text-sm font-medium hidden md:block">Administrador</span>
+                <img src="https://ui-avatars.com/api/?name=Admin&background=A855F7&color=fff" alt="Admin" class="w-8 h-8 rounded-full">
+            </div>
+        </div>
+    </header>
 
-@section('content')
+    <nav id="mobileNav" class="bg-card border-b border-bordercolor hidden md:block w-full">
+        <ul class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 text-sm font-medium whitespace-nowrap py-4 md:py-3">
+            <li><a href="../index.html" class="flex flex-col items-center gap-1 text-textsec hover:text-primary transition-colors"><span class="text-xl">🏠</span> Volver a la Tienda</a></li>
+            <li><a href="admin.html" class="flex flex-col items-center gap-1 text-primary transition-colors"><span class="text-xl">📊</span> Dashboard</a></li>
+        </ul>
+    </nav>
 
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
         <!-- Dashboard Stats -->
