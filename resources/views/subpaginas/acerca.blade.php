@@ -50,7 +50,7 @@
 
     <!-- Imagen -->
     <div class="order-2 lg:order-1">
-        <img src="{{ asset('images/equipo.png') }}" alt="Nuestro Equipo" class="w-full object-cover rounded-2xl shadow-xl">
+        <img src="{{ asset('images/equipoxd.jpg') }}" alt="Nuestro Equipo" class="w-full object-cover rounded-2xl shadow-xl">
     </div>
 
     <!-- Texto -->

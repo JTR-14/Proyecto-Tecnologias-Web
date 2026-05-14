@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Product;
 class ProductController extends Controller
 {
     /**
@@ -31,11 +31,12 @@ class ProductController extends Controller
             'nombre' => 'required|string|max:255',
             'categoria' => 'required|string|max:255',
             'descripcion' => 'nullable|string',
-            'precio' => 'required|numeric',
+            'precio' => 'required|numeric|min:0',
+            'stock' => 'required|integer|min:0',
             'imagen' => 'nullable|string'
         ]);
 
-        \App\Models\Product::create($request->all());
+        Product::create($request->all());
 
         return redirect()->route('admin')->with('success', 'Producto creado exitosamente');
     }
@@ -69,7 +70,7 @@ class ProductController extends Controller
      */
     public function destroy(string $id)
     {
-        $producto = \App\Models\Product::findOrFail($id);
+        $producto = Product::findOrFail($id);
         $producto->delete();
         
         return redirect()->route('admin')->with('success', 'Producto eliminado exitosamente');

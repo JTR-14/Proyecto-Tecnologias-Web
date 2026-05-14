@@ -436,6 +436,101 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target === registerModal) { registerModal.classList.add('hidden'); registerModal.classList.remove('flex'); }
     });
 
+    // Validación cliente para login/register
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const loginClientError = document.getElementById('loginClientError');
+    const registerClientError = document.getElementById('registerClientError');
+
+    const isValidEmail = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+
+    const showFormError = (element, message) => {
+        if (!element) return;
+        element.textContent = message;
+        element.classList.remove('hidden');
+    };
+
+    const hideFormError = (element) => {
+        if (!element) return;
+        element.textContent = '';
+        element.classList.add('hidden');
+    };
+
+    if (loginForm) {
+        loginForm.addEventListener('submit', (event) => {
+            hideFormError(loginClientError);
+
+            const email = loginForm.querySelector('input[name="email"]').value.trim();
+            const password = loginForm.querySelector('input[name="password"]').value.trim();
+
+            if (!email) {
+                event.preventDefault();
+                showFormError(loginClientError, 'Ingresa tu correo electrónico.');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                event.preventDefault();
+                showFormError(loginClientError, 'El correo electrónico no es válido.');
+                return;
+            }
+
+            if (!password) {
+                event.preventDefault();
+                showFormError(loginClientError, 'Ingresa tu contraseña.');
+                return;
+            }
+        });
+    }
+
+    if (registerForm) {
+        registerForm.addEventListener('submit', (event) => {
+            hideFormError(registerClientError);
+
+            const name = registerForm.querySelector('input[name="name"]').value.trim();
+            const email = registerForm.querySelector('input[name="email"]').value.trim();
+            const password = registerForm.querySelector('input[name="password"]').value.trim();
+            const passwordConfirmation = registerForm.querySelector('input[name="password_confirmation"]').value.trim();
+
+            if (!name) {
+                event.preventDefault();
+                showFormError(registerClientError, 'Ingresa tu nombre.');
+                return;
+            }
+
+            if (!email) {
+                event.preventDefault();
+                showFormError(registerClientError, 'Ingresa tu correo electrónico.');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                event.preventDefault();
+                showFormError(registerClientError, 'El correo electrónico no es válido.');
+                return;
+            }
+
+            if (!password) {
+                event.preventDefault();
+                showFormError(registerClientError, 'Ingresa una contraseña.');
+                return;
+            }
+
+            if (password.length < 8) {
+                event.preventDefault();
+                showFormError(registerClientError, 'La contraseña debe tener al menos 8 caracteres.');
+                return;
+            }
+
+            if (password !== passwordConfirmation) {
+                event.preventDefault();
+                showFormError(registerClientError, 'Las contraseñas no coinciden.');
+                return;
+            }
+        });
+    }
 
     // === BARRA DE BÚSQUEDA ===
     // Filtra productos por título al escribir en el input.

@@ -44,13 +44,13 @@
                 <span class="hidden sm:inline">•</span>
                 <span>Av. Juan Pablo II, Trujillo</span>
             </div>
-            <a href="https://wa.me/51993521821" target="_blank"
+            <a href="https://api.whatsapp.com/send?phone=51907494134&text=Hola,%20quiero%20más%20información" target="_blank"
                 class="inline-flex items-center gap-2 text-white hover:text-slate-200">
                 <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M20.52 3.48A11.82 11.82 0 0012 0C5.37 0 0 5.37 0 12c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65A11.95 11.95 0 0012 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.2-3.48-8.52zM12 21.82c-1.86 0-3.69-.5-5.28-1.44l-.38-.23-3.75.98.99-3.66-.24-.39A9.8 9.8 0 012.18 12 9.82 9.82 0 0112 2.18c5.42 0 9.82 4.4 9.82 9.82S17.42 21.82 12 21.82zm5.35-6.35c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.01-.38-1.92-1.18-.71-.63-1.19-1.4-1.33-1.64-.14-.24-.02-.37.1-.49.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.46-.4-.4-.54-.4h-.46c-.14 0-.36.02-.55.24-.2.22-.78.76-.78 1.86 0 1.1.8 2.16.9 2.31.1.14 1.56 2.4 3.78 3.36.53.23.94.36 1.26.46.53.16 1.02.14 1.4.08.43-.08 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28z" />
                 </svg>
-                <span>993 521 821</span>
+                <span>907 494 134</span>
             </a>
         </div>
     </div>
@@ -118,15 +118,29 @@
                     </svg>
                 </button>
                 <!-- Perfil -->
-                <button id="loginBtn"
-                    class="relative inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 text-white transition-colors hover:bg-white hover:text-black"
-                    aria-label="Perfil">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                    </svg>
-                    <span class="hidden sm:inline"></span>
-                </button>
+                @guest
+                    <button id="loginBtn"
+                        class="relative inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 text-white transition-colors hover:bg-white hover:text-black"
+                        aria-label="Perfil">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span class="hidden sm:inline px-1">Iniciar Sesión</span>
+                    </button>
+                @endguest
+
+                @auth
+                    <a href="{{ route('usuario') }}"
+                        class="relative inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 p-2 text-white transition-colors hover:bg-white hover:text-black"
+                        aria-label="Perfil">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span class="hidden sm:inline px-1">{{ Auth::user()->name }}</span>
+                    </a>
+                @endauth
             </div>
         </div>
     </header>
@@ -159,7 +173,6 @@
                     class="text-textsec hover:text-white transition-colors">Componentes</a></li>
             <li><a href="{{ route('perifericos') }}"
                     class="text-textsec hover:text-white transition-colors">Periféricos</a></li>
-            <li><a href="{{ route('admin') }}" class="text-textsec hover:text-white transition-colors">Admin</a></li>
         </ul>
     </nav>
 
@@ -201,8 +214,8 @@
                 <h4 class="text-white font-semibold mb-4 text-lg">Empresa</h4>
                 <ul class="space-y-2 text-sm text-textsec">
                     <li>Av. Juan Pablo II, Trujillo</li>
-                    <li><a href="https://wa.me/51993521821" target="_blank"
-                            class="hover:text-white transition-colors">WhatsApp: 993 521 821</a></li>
+                    <li><a href="https://api.whatsapp.com/send?phone=51907494134&text=Hola,%20quiero%20más%20información" target="_blank"
+                            class="hover:text-white transition-colors">WhatsApp: 907 494 134</a></li>
                     <li><a href="{{ route('acerca') }}" class="hover:text-white transition-colors">Acerca de</a></li>
                 </ul>
             </div>
@@ -226,21 +239,28 @@
                 </svg>
             </button>
             <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center ">Iniciar Sesión</h2>
-            <form class="space-y-4">
+            <form id="loginForm" method="POST" action="{{ route('login') }}" class="space-y-4" novalidate>
+                @csrf
+                @if ($errors->any())
+                    <div class="bg-red-100 text-red-700 border border-red-200 rounded-lg p-3 text-sm">
+                        {{ $errors->first('email') ?: $errors->first('password') }}
+                    </div>
+                @endif
+                <div id="loginClientError" class="hidden bg-red-100 text-red-700 border border-red-200 rounded-lg p-3 text-sm"></div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 dark:text-white mb-1">Correo
                         Electrónico</label>
-                    <input type="email"
+                    <input type="email" name="email" value="{{ old('email') }}"
                         class="w-full bg-slate-100 dark:bg-slate-900 border border-bordercolor rounded-lg p-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
                         placeholder="tu@email.com">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 dark:text-white mb-1">Contraseña</label>
-                    <input type="password"
+                    <input type="password" name="password"
                         class="w-full bg-slate-100 dark:bg-slate-900 border border-bordercolor rounded-lg p-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
                         placeholder="••••••••">
                 </div>
-                <button type="button"
+                <button type="submit"
                     class="w-full bg-primary hover:bg-purple-600 hover:text-gray-200 text-white font-bold py-3 rounded-lg transition-colors mt-4 focus:ring-4 focus:ring-primary/20 focus:border-primary outline-none">Entrar</button>
             </form>
             <p class="text-center text-slate-700 dark:text-textsec text-sm mt-6">¿No tienes una cuenta? <a href="#"
@@ -262,27 +282,40 @@
                 </svg>
             </button>
             <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center ">Crear Cuenta</h2>
-            <form class="space-y-4">
+            <form id="registerForm" method="POST" action="{{ route('register') }}" class="space-y-4" novalidate>
+                @csrf
+                @if ($errors->any())
+                    <div class="bg-red-100 text-red-700 border border-red-200 rounded-lg p-3 text-sm">
+                        {{ $errors->first() }}
+                    </div>
+                @endif
+                <div id="registerClientError" class="hidden bg-red-100 text-red-700 border border-red-200 rounded-lg p-3 text-sm"></div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 dark:text-white mb-1">Nombre</label>
-                    <input type="text"
+                    <input type="text" name="name" value="{{ old('name') }}"
                         class="w-full bg-slate-100 dark:bg-slate-900 border border-bordercolor rounded-lg p-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
                         placeholder="Tu nombre">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 dark:text-white mb-1">Correo
                         Electrónico</label>
-                    <input type="email"
+                    <input type="email" name="email" value="{{ old('email') }}"
                         class="w-full bg-slate-100 dark:bg-slate-900 border border-bordercolor rounded-lg p-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
                         placeholder="tu@email.com">
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-700 dark:text-white mb-1">Contraseña</label>
-                    <input type="password"
+                    <input type="password" name="password"
                         class="w-full bg-slate-100 dark:bg-slate-900 border border-bordercolor rounded-lg p-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
                         placeholder="••••••••">
                 </div>
-                <button type="button"
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 dark:text-white mb-1">Confirmar Contraseña</label>
+                    <input type="password" name="password_confirmation"
+                        class="w-full bg-slate-100 dark:bg-slate-900 border border-bordercolor rounded-lg p-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
+                        placeholder="••••••••">
+                </div>
+                <button type="submit"
                     class="w-full bg-primary hover:bg-purple-600 hover:text-gray-200 text-white font-bold py-3 rounded-lg transition-colors mt-4 focus:ring-4 focus:ring-primary/30 focus:border-primary outline-none">Registrarse</button>
             </form>
             <p class="text-center text-slate-700 dark:text-textsec text-sm mt-6">¿Ya tienes una cuenta? <a href="#"
@@ -291,7 +324,7 @@
                     Sesión</a></p>
         </div>
     </div>
-    <a href="https://wa.me/51993521821" target="_blank"
+    <a href="https://api.whatsapp.com/send?phone=51907494134&text=Hola,%20quiero%20más%20información" target="_blank"
         class="fixed bottom-5 right-5 z-999 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-all z-50 duration-300 hover:scale-110"
         aria-label="Contactar por WhatsApp">
 

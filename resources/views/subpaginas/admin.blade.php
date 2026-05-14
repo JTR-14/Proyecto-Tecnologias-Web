@@ -50,6 +50,12 @@
                 </div>
 
                 <div>
+                    <label for="stock" class="block text-sm font-medium text-white mb-1">Stock</label>
+                    <input type="number" name="stock" id="stock" required 
+                        class="w-full bg-black border border-white text-white text-sm rounded-lg focus:ring-primary focus:border-primary p-2.5">
+                </div>
+
+                <div class="md:col-span-2">
                     <label for="imagen" class="block text-sm font-medium text-white mb-1">URL de la Imagen</label>
                     <input type="url" name="imagen" id="imagen" 
                         class="w-full bg-black border border-white text-white text-sm rounded-lg focus:ring-primary focus:border-primary p-2.5">
@@ -76,6 +82,7 @@
                         <th scope="col" class="px-6 py-3">Nombre</th>
                         <th scope="col" class="px-6 py-3">Categoría</th>
                         <th scope="col" class="px-6 py-3">Precio</th>
+                        <th scope="col" class="px-6 py-3">Stock</th>
                         <th scope="col" class="px-6 py-3">Acciones</th>
                     </tr>
                 </thead>
@@ -99,6 +106,9 @@
                                 S/ {{ number_format($producto->precio, 2) }}
                             </td>
                             <td class="px-6 py-4">
+                                {{ $producto->stock }}
+                            </td>
+                            <td class="px-6 py-4">
                                 <form action="{{ route('productos.destroy', $producto->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de eliminar este producto?');">
                                     @csrf
                                     @method('DELETE')
@@ -108,7 +118,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5" class="px-6 py-4 text-center text-textsec">No hay productos registrados todavía.</td>
+                            <td colspan="6" class="px-6 py-4 text-center text-textsec">No hay productos registrados todavía.</td>
                         </tr>
                     @endforelse
                 </tbody>
