@@ -1,0 +1,39 @@
+{% extends 'plantilla.html' %}
+
+{% block content %}
+<div class="max-w-md mx-auto bg-white dark:bg-black border border-bordercolor rounded-2xl p-8 shadow-2xl mt-10">
+    <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center ">Crear Cuenta</h2>
+    <form method="POST" action="{% url 'register' %}" class="space-y-4" novalidate>
+        {% csrf_token %}
+        <div id="registerClientError" class="hidden bg-red-100 text-red-700 border border-red-200 rounded-lg p-3 text-sm"></div>
+        <div>
+            <label class="block text-sm font-medium text-slate-700 dark:text-white mb-1">Nombre</label>
+            <input type="text" name="name" required
+                class="w-full bg-slate-100 dark:bg-slate-900 border border-bordercolor rounded-lg p-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
+                placeholder="Tu nombre">
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-slate-700 dark:text-white mb-1">Correo Electrónico</label>
+            <input type="email" name="email" required
+                class="w-full bg-slate-100 dark:bg-slate-900 border border-bordercolor rounded-lg p-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
+                placeholder="tu@email.com">
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-slate-700 dark:text-white mb-1">Contraseña</label>
+            <input type="password" name="password" required
+                class="w-full bg-slate-100 dark:bg-slate-900 border border-bordercolor rounded-lg p-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
+                placeholder="••••••••">
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-slate-700 dark:text-white mb-1">Confirmar Contraseña</label>
+            <input type="password" name="password_confirmation" required
+                class="w-full bg-slate-100 dark:bg-slate-900 border border-bordercolor rounded-lg p-3 text-slate-900 dark:text-white focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none"
+                placeholder="••••••••">
+        </div>
+        <button type="submit"
+            class="w-full bg-primary hover:bg-purple-600 hover:text-gray-200 text-white font-bold py-3 rounded-lg transition-colors mt-4 focus:ring-4 focus:ring-primary/30 focus:border-primary outline-none">Registrarse</button>
+    </form>
+    <p class="text-center text-slate-700 dark:text-textsec text-sm mt-6">¿Ya tienes una cuenta? <a href="{% url 'login' %}"
+            class="text-primary hover:underline focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none">Inicia Sesión</a></p>
+</div>
+{% endblock %}

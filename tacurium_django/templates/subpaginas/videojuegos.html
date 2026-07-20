@@ -1,0 +1,56 @@
+{% extends 'plantilla.html' %}
+{% load static %}
+
+{% block content %}
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+            <div>
+                <h1 class="text-3xl font-bold text-black dark:text-white mb-1">Videojuegos</h1>
+                <p class="text-textsec text-sm">Los títulos más emocionantes para todas las plataformas</p>
+            </div>
+        </div>
+
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for producto in productos %}
+                <article
+                    class="product-card bg-card rounded-xl border border-bordercolor overflow-hidden hover:border-primary transition-all group flex flex-col h-full shadow-lg relative">
+                    <div class="relative aspect-[4/3] overflow-hidden bg-background flex items-center justify-center p-4">
+                        <img src="{{ producto.imagen }}" alt="{{ producto.nombre }}"
+                            class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300">
+                        <button
+                            class="wishlist-btn absolute top-3 right-3 p-2 bg-card rounded-full text-textsec hover:text-red-500 transition-colors shadow-lg">
+                            <svg class="w-5 h-5 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="p-5 flex flex-col flex-grow">
+                        <h3 class="product-title text-white font-semibold text-lg mb-1 line-clamp-2">{{ producto.nombre }}
+                        </h3>
+                        <p class="text-textsec text-sm mb-4">{{ producto.descripcion }}</p>
+                        <div class="mt-auto flex items-center justify-between">
+                            <span class="text-white font-bold text-xl">S/ {{ producto.precio }}</span>
+                            <button
+                                class="add-to-cart-btn bg-primary hover:bg-purple-600 text-white p-2.5 rounded-lg transition-colors shadow-lg shadow-purple-500/30">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            {% empty %}
+                <div class="col-span-full text-center text-gray-400 py-10">
+                    <p>No hay videojuegos disponibles en este momento.</p>
+                </div>
+            {% endfor %}
+
+        </section>
+    </main>
+
+{% endblock %}
