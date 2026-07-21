@@ -29,6 +29,63 @@
             background-color: #FFFFFF;
             color: black;
         }
+        /* Estilos de las Tarjetas de Producto para modo Claro y Oscuro */
+        .product-card {
+            background-color: #FFFFFF !important;
+            border-color: #E2E8F0 !important;
+        }
+        .product-card .product-title,
+        .product-card span.text-white,
+        .product-card .text-white {
+            color: #000000 !important;
+        }
+        .product-card .wishlist-btn {
+            background-color: #FFFFFF !important;
+            border: 1px solid #E2E8F0 !important;
+        }
+
+        /* Modo Oscuro (clase .dark en la etiqueta html) */
+        .dark .product-card {
+            background-color: #000000 !important;
+            border-color: #CCCCCC !important;
+        }
+        .dark .product-card .product-title,
+        .dark .product-card span.text-white,
+        .dark .product-card .text-white {
+            color: #FFFFFF !important;
+        }
+        .dark .product-card .wishlist-btn {
+            background-color: #000000 !important;
+            border-color: #334155 !important;
+        }
+
+        /* Estilos personalizados para los inputs dentro de formularios oscuros (bg-black) */
+        .bg-black input, 
+        .bg-black select, 
+        .bg-black textarea {
+            background-color: #000000 !important;
+            color: #FFFFFF !important;
+            border: 1px solid #FFFFFF !important;
+            border-radius: 0.5rem !important;
+            padding: 0.625rem !important;
+        }
+        .bg-black input:focus, 
+        .bg-black select:focus, 
+        .bg-black textarea:focus {
+            border-color: #A855F7 !important; /* Color primario morado */
+            outline: none !important;
+            box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.3) !important;
+        }
+        .bg-black label {
+            color: #FFFFFF !important;
+            font-size: 0.875rem !important;
+            font-weight: 500 !important;
+            margin-bottom: 0.25rem !important;
+        }
+        .bg-black .help-block,
+        .bg-black .invalid-feedback {
+            color: #EF4444 !important;
+        }
     </style>
     <script src="{% static 'js/main.js' %}" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
