@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    # Catalog and Pages
+    
     path('', views.home, name='home'),
     path('componentes/', views.componentes, name='componentes'),
     path('pcsgamer/', views.pcsgamer, name='pcsgamer'),
@@ -10,14 +10,14 @@ urlpatterns = [
     path('videojuegos/', views.videojuegos, name='videojuegos'),
     path('acerca/', views.acerca, name='acerca'),
 
-    # Profile & Auth
+    
     path('usuario/', views.usuario, name='usuario'),
     path('usuario/foto/', views.actualizar_foto, name='usuario.foto.actualizar'),
     path('login/', views.login_view, name='login'),
     path('register/', views.register_view, name='register'),
     path('logout/', views.logout_view, name='logout'),
 
-    # Custom Admin Product CRUD (Explicit routes as requested)
+   
     path('listaproductos/', views.admin_productos, name='admin'),
     path('agregarproducto/', views.agregar_producto, name='productos.store'),
     path('editarproducto/<int:id>/', views.editar_producto, name='productos.edit'),
